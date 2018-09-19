@@ -1,0 +1,14 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<form class="form form-shipping-delivery" id="co-shipping-delivery-form" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+    <div id="shipping-delivery" class="fieldset delivery">
+        <!-- ko foreach: getRegion('delivery-fieldsets') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+</form>

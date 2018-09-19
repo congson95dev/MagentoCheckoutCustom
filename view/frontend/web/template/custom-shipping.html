@@ -1,0 +1,21 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<!-- custom delivery-->
+
+<li id="delivery" class="checkout-shipping-delivery" data-bind="fadeVisible: visible()">
+    <if args="isFormInline">
+        <div class="step-title" translate="'Delivery'" data-role="title" />
+    </if>
+    <div id="checkout-step-delivery"
+         class="step-content"
+         data-role="content">
+
+        <!-- Inline address form -->
+        <render args="deliveryFormTemplate" />
+    </div>
+</li>

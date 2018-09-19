@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Aht_MagentoCheckoutCustom/css/style.css"/>
+        <script src="Aht_MagentoCheckoutCustom::js/custom-js.js"></script>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <!--<item name="config" xsi:type="array">-->
+                                                        <!--<item name="template" xsi:type="string">Aht_MagentoCheckoutCustom/custom-shipping</item>-->
+                                                    <!--</item>-->
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="delivery-group" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Aht_MagentoCheckoutCustom/js/view/custom-shipping</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="sortOrder" xsi:type="string">150</item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <item name="delivery-fieldset" xsi:type="array">
+                                                                            <!-- uiComponent is used as a wrapper for form fields (its template will render all children as a list) -->
+                                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                                            <item name="displayArea" xsi:type="string">delivery-fieldsets</item>
+                                                                            <item name="children" xsi:type="array">
+                                                                                <item name="delivery_instruction" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <!--customScope is used to group elements within a single form (e.g. they can be validated separately)-->
+                                                                                        <item name="customScope" xsi:type="string">deliveryForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                                    </item>
+                                                                                    <!-- value element allows to specify default value of the form field -->
+                                                                                    <!--<item name="value" xsi:type="string">Yout value here</item>-->
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">deliveryForm.delivery_instruction</item>
+                                                                                    <item name="label" xsi:type="string">Delivery Instruction:</item>
+                                                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                                                </item>
+                                                                                <item name="delivery_type" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <!--customScope is used to group elements within a single form (e.g. they can be validated separately)-->
+                                                                                        <item name="customScope" xsi:type="string">deliveryForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                                                    </item>
+                                                                                    <item name="options" xsi:type="array">
+                                                                                        <item name="0" xsi:type="array">
+                                                                                            <item name="label" xsi:type="string">Delivery Type 1</item>
+                                                                                            <item name="value" xsi:type="string">delivery_type_1</item>
+                                                                                        </item>
+                                                                                        <item name="1" xsi:type="array">
+                                                                                            <item name="label" xsi:type="string">Delivery Type 2</item>
+                                                                                            <item name="value" xsi:type="string">delivery_type_2</item>
+                                                                                        </item>
+                                                                                        <item name="2" xsi:type="array">
+                                                                                            <item name="label" xsi:type="string">Delivery Type 3</item>
+                                                                                            <item name="value" xsi:type="string">delivery_type_3</item>
+                                                                                        </item>
+                                                                                    </item>
+                                                                                    <!-- value element allows to specify default value of the form field -->
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">deliveryForm.delivery_type</item>
+                                                                                    <item name="label" xsi:type="string">Delivery Type:</item>
+                                                                                    <item name="sortOrder" xsi:type="string">2</item>
+                                                                                </item>
+                                                                                <item name="term_of_use" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/boolean</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <!--customScope is used to group elements within a single form (e.g. they can be validated separately)-->
+                                                                                        <item name="customScope" xsi:type="string">deliveryForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/checkbox</item>
+                                                                                    </item>
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">deliveryForm.term_of_use</item>
+                                                                                    <item name="description" xsi:type="string">I accept the Terms of Use and Privacy Policy
+                                                                                        Sorry, you must accept our Terms of Use and our Privacy Policy before placing your order</item>
+                                                                                    <item name="sortOrder" xsi:type="string">3</item>
+                                                                                </item>
+                                                                            </item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
