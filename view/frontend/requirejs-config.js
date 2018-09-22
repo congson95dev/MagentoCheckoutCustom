@@ -7,8 +7,12 @@ var config = {
     map: {
         '*': {
             //customJS doesn't work because no where need to use that customJS.
-            customJs : 'Aht_MagentoCheckoutCustom/js/custom-js.js',
+            // customJs : 'Aht_MagentoCheckoutCustom/js/custom-js',
             'Magento_Checkout/js/model/shipping-save-processor/default': 'Aht_MagentoCheckoutCustom/js/model/shipping-save-processor/default'
         }
     }
+    // ,
+    // deps:[
+    //     'Aht_MagentoCheckoutCustom/js/custom-js'
+    // ]
 };
