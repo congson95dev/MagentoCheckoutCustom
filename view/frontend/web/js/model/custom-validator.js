@@ -6,9 +6,8 @@ define(
         './custom-shipping-rates-validation-rules',
         'mage/translate'
     ],
-    function($, utils, validationRules, $t) {
+    function ($, utils, validationRules, $t) {
         'use strict';
-
         return {
             validationErrors: [],
             validate: function (address) {
@@ -22,5 +21,5 @@ define(
                 });
                 return !Boolean(this.validationErrors.length);
             }
-        }
-});
+        };
+    });

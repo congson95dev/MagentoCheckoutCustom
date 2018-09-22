@@ -14,8 +14,8 @@ define(
     {
         console.log('123');
         'use strict';
-        defaultShippingRatesValidator.registerValidator('carrierName', shippingRatesValidator);
-        defaultShippingRatesValidationRules.registerRules('carrierName', shippingRatesValidationRules);
+        defaultShippingRatesValidator.registerValidator('custom-validator', shippingRatesValidator);
+        defaultShippingRatesValidationRules.registerRules('custom-shipping-rates-validation-rules', shippingRatesValidationRules);
         return Component;
     }
 );
