@@ -11,6 +11,14 @@ var config = {
             'Magento_Checkout/js/model/shipping-save-processor/default': 'Aht_MagentoCheckoutCustom/js/model/shipping-save-processor/default'
         }
     }
+    ,
+    'config': {
+        'mixins': {
+            'Magento_Checkout/js/view/shipping': {
+                'Aht_MagentoCheckoutCustom/js/view/shipping': true
+            }
+        }
+    }
     // ,
     // deps:[
     //     'Aht_MagentoCheckoutCustom/js/custom-js'

@@ -9,7 +9,6 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css src="Aht_MagentoCheckoutCustom/css/style.css"/>
-        <!--<script src="Aht_MagentoCheckoutCustom::js/custom-validator.js"></script>-->
     </head>
     <body>
         <referenceBlock name="checkout.root">
@@ -22,17 +21,6 @@
                                     <item name="children" xsi:type="array">
                                         <item name="shipping-step" xsi:type="array">
                                             <item name="children" xsi:type="array">
-                                                <item name="step-config" xsi:type="array">
-                                                    <item name="children" xsi:type="array">
-                                                        <item name="shipping-rates-validation" xsi:type="array">
-                                                            <item name="children" xsi:type="array">
-                                                                <item name="custom-validator" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Aht_MagentoCheckoutCustom/js/view/custom-validation</item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
-                                                    </item>
-                                                </item>
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <!--<item name="config" xsi:type="array">-->
                                                         <!--<item name="template" xsi:type="string">Aht_MagentoCheckoutCustom/custom-shipping</item>-->
