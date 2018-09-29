@@ -53,10 +53,6 @@ define([
 ) {
     'use strict';
 
-    $('.primary').click(function () {
-        console.log('clicked');
-    });
-
     return Component.extend({
         defaults: {
             template: 'Aht_MagentoCheckoutCustom/custom-shipping',

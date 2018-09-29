@@ -6,16 +6,19 @@ define([
 
     return function (Target) {
         return Target.extend({
-            errorDeliveryValidationMessage: ko.observable(false),
+            // errorDeliveryValidationMessage: ko.observable(false),
             validateShippingInformation: function () {
-                this._super();
-                if($('[name="term_of_use"]:checked').length > 0) {
-                    console.log('1');
-                    return true;
+                var result = this._super();
+                if($('[name="term_of_use"]:checked').length == 0) {
+                    $('.delivery-validate').css('display','block');
+                    // this.errorDeliveryValidationMessage('Please agree our term of use.');
+                    
+                    return false;
+                } else {
+                    $('.delivery-validate').css('display','none');
+
+                    return result;
                 }
-                console.log('2');
-                this.errorDeliveryValidationMessage('Please agree our term of use.');
-                return false;
             }
         });
     }
