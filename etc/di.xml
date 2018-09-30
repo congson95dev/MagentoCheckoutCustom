@@ -3,4 +3,18 @@
     <type name="Magento\Checkout\Model\ShippingInformationManagement">
         <plugin name="custom_shipping_information_delivery" type="Aht\MagentoCheckoutCustom\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="2"/>
     </type>
+
+	<!-- override block -->
+	<preference for="Magento\Sales\Block\Order\Info" type="Aht\MagentoCheckoutCustom\Block\Order\Info" />
+
+	<!-- call virtualType to Magento\Sales\Model\ResourceModel\Order\Grid so everytime an order's placed then the "sales_order_grid" table will update data after "sales_order" table -->
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+	    <arguments>
+	        <argument name="columns">
+	            <item name="delivery_instruction" xsi:type="string">sales_order.delivery_instruction</item>
+	            <item name="delivery_type" xsi:type="string">sales_order.delivery_type</item>
+	        </argument>
+	    </arguments>
+	</virtualType>
+
 </config>

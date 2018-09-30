@@ -16,21 +16,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $installer->startSetup();
 
         if (version_compare($context->getVersion(), '1.1.0', '<')) {
-//            don't have to use this table :(
-            if ($installer->tableExists('delivery_checkout')) {
-                $connection = $installer->getConnection();
-                $tableName = $installer->getTable('delivery_checkout');
-
-                $connection->addColumn(
-                    $tableName,
-                    'cart_id',
-                    [
-                        'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                        'nullable' => false,
-                        'comment' => 'Cart ID'
-                    ]
-                );
-            }
 
             if ($installer->tableExists('quote')) {
                 $connection = $installer->getConnection();
@@ -78,6 +63,63 @@ class UpgradeSchema implements UpgradeSchemaInterface
                         'comment' => 'Delivery Type'
                     ]
                 );
+            }
+
+            if ($installer->tableExists('sales_order_grid')) {
+                $connection = $installer->getConnection();
+                $tableName = $installer->getTable('sales_order_grid');
+
+                $connection->addColumn(
+                    $tableName,
+                    'delivery_instruction',
+                    [
+                        'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                        'nullable' => false,
+                        'comment' => 'Delivery Instruction'
+                    ]
+                );
+                $connection->addColumn(
+                    $tableName,
+                    'delivery_type',
+                    [
+                        'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                        'nullable' => false,
+                        'comment' => 'Delivery Type'
+                    ]
+                );
+            }
+
+//          update existing data from table 1 to table 2
+            
+            if ($installer->tableExists('sales_order_grid')) {
+                $connection = $installer->getConnection();
+                $sales_order_grid = $installer->getTable('sales_order_grid');
+                $sales_order = $installer->getTable('sales_order');
+
+                $connection->query(
+                    $connection->updateFromSelect(
+                        $connection->select()
+                            ->join(
+                                $sales_order,
+                                sprintf('%s.entity_id = %s.entity_id', $sales_order_grid, $sales_order),
+                                'delivery_instruction'
+                            ),
+                        $sales_order_grid
+                    )
+                );
+
+                $connection->query(
+                    $connection->updateFromSelect(
+                        $connection->select()
+                            ->join(
+                                $sales_order,
+                                sprintf('%s.entity_id = %s.entity_id', $sales_order_grid, $sales_order),
+                                'delivery_type'
+                            ),
+                        $sales_order_grid
+                    )
+                );
+
             }
         }
 

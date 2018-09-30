@@ -60,6 +60,7 @@ define([
         },
         visible: ko.observable(true),
         errorValidationMessage: ko.observable(false),
+        errorDeliveryValidationMessage: ko.observable('Please agree our term of use.'),
         isCustomerLoggedIn: customer.isLoggedIn,
         isFormPopUpVisible: formPopUpState.isVisible,
         isFormInline: addressList().length === 0,

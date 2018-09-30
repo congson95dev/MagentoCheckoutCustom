@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<columns name="sales_order_columns">
+    <column name="delivery_instruction">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="label" xsi:type="string" translate="true">Delivery Instruction</item>
+            </item>
+        </argument>
+    </column>
+    <column name="delivery_type">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="label" xsi:type="string" translate="true">Delivery Type</item>
+            </item>
+        </argument>
+    </column>
+</columns>
+</listing>
