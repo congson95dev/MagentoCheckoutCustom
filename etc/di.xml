@@ -4,7 +4,7 @@
         <plugin name="custom_shipping_information_delivery" type="Aht\MagentoCheckoutCustom\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="2"/>
     </type>
 
-	<!-- override block -->
+	<!-- want to Override, use preference then extends from it.  -->
 	<preference for="Magento\Sales\Block\Order\Info" type="Aht\MagentoCheckoutCustom\Block\Order\Info" />
 
 	<!-- call virtualType to Magento\Sales\Model\ResourceModel\Order\Grid so everytime an order's placed then the "sales_order_grid" table will update data after "sales_order" table -->
